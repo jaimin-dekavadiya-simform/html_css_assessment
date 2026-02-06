@@ -8,6 +8,8 @@
   --flip-blue: #2874f0;
 }
 
+/* Header Styles */
+
 header {
   display: flex;
   background-color: var(--flip-blue);
@@ -57,7 +59,6 @@ header {
   margin-left: 7%;
   align-items: center;
 }
-
 .logo-text {
   font-style: italic;
   font-weight: bold;
@@ -65,7 +66,6 @@ header {
   font-size: 80%;
   color: white;
 }
-
 .logo-text-plus {
   margin-left: 2%;
   color: rgb(255, 255, 0);
@@ -88,7 +88,6 @@ header {
   border-radius: 3px;
   overflow: hidden;
 }
-
 .searchbar-input {
   height: 100%;
   width: 100%;
@@ -101,7 +100,6 @@ header {
 .searchbar-icon {
   color: var(--flip-blue);
 }
-
 .nav-buttons {
   height: 50%;
   width: 30%;
@@ -118,7 +116,6 @@ header {
 .login-button:hover {
   background-color: rgba(255, 255, 255, 0.897);
 }
-
 .cart-more-buttons {
   display: flex;
   justify-content: center;
@@ -127,7 +124,6 @@ header {
   color: white;
   background-color: var(--flip-blue);
 }
-
 .cart-more-buttons:hover {
   background-color: white;
   color: var(--flip-blue);
@@ -160,7 +156,7 @@ header {
   position: relative;
 }
 .dropdown-more-list {
-  top: 35px;
+  top: 100%;
   position: absolute;
   visibility: hidden;
   background-color: white;
@@ -175,7 +171,6 @@ header {
   transform-origin: top;
   border-radius: 1px;
 }
-
 .dropdown-more-list li {
   list-style: none;
   text-align: center;
@@ -187,7 +182,6 @@ header {
 .dropdown-more-list li:hover {
   background-color: rgb(229, 229, 229);
 }
-
 .searchbar-for-mobile {
   display: none;
 }
@@ -204,23 +198,23 @@ header {
 .searchbar-for-mobile:hover .searchbar-input-mobile {
   transform: scaleX(1);
 }
-
 .searchbar-input-mobile {
   display: block;
   position: absolute;
-  width: calc(100vw - 180px);
+  width: calc(100vw - 150px);
   transition: all 100ms ease-in-out;
   transform-origin: left;
   transform: scaleX(0);
   z-index: 2;
   height: 100%;
-  left: 40px;
+  left: 99%;
   border: none;
   outline: none;
 }
 @media (max-width: 700px) {
   .searchbar-for-mobile {
     display: flex;
+    margin-left: 10%;
   }
   .searchbar {
     display: none;
@@ -235,9 +229,13 @@ header {
   }
   header {
     justify-content: start;
+    height: 50px;
   }
 }
 @media (max-width: 450px) {
+  .nav-buttons {
+    font-size: small;
+  }
   .header-right {
     min-width: 0px;
     margin-right: 10px;
@@ -251,4 +249,38 @@ header {
   .cart-more-buttons {
     width: 40px;
   }
+  .dropdown-more-list li {
+    min-width: 70px;
+    background-color: white;
+  }
+}
+
+/* Category Container Styles */
+.categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: scroll;
+  gap: 3%;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  box-shadow: 0px 1px 5px rgb(212, 212, 212);
+}
+.category-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+.category-item-image {
+  height: 100px;
+  padding: 10%;
+}
+.category-item-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1%;
+  gap: 5%;
 }
