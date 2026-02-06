@@ -1,0 +1,254 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --flip-blue: #2874f0;
+}
+
+header {
+  display: flex;
+  background-color: var(--flip-blue);
+  height: 70px;
+  align-items: center;
+  justify-content: space-around;
+}
+.header-left {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 700px;
+  min-width: 300px;
+  width: 50%;
+  gap: 2%;
+  flex: 0 0 auto;
+}
+.header-right {
+  display: flex;
+  height: 100%;
+
+  min-width: 300px;
+  width: 25%;
+  gap: 2%;
+  align-items: center;
+}
+.logo {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.logo-top {
+  overflow: hidden;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-text-flipkart {
+  height: 350%;
+}
+.logo-bottom {
+  height: 20%;
+  display: flex;
+  margin-left: 7%;
+  align-items: center;
+}
+
+.logo-text {
+  font-style: italic;
+  font-weight: bold;
+  font-family: Verdana, sans-serif;
+  font-size: 80%;
+  color: white;
+}
+
+.logo-text-plus {
+  margin-left: 2%;
+  color: rgb(255, 255, 0);
+}
+.logo-flipkart-plus {
+  position: relative;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  height: 90%;
+}
+.searchbar {
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  position: relative;
+  background-color: white;
+  padding-right: 2%;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.searchbar-input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding-left: 2%;
+  font-size: medium;
+  text-overflow: ellipsis;
+}
+.searchbar-icon {
+  color: var(--flip-blue);
+}
+
+.nav-buttons {
+  height: 50%;
+  width: 30%;
+  border: none;
+  border-radius: 2px;
+  font-size: medium;
+  font-weight: 400;
+  transition: all 100ms ease-in;
+}
+.login-button {
+  color: var(--flip-blue);
+  background-color: white;
+}
+.login-button:hover {
+  background-color: rgba(255, 255, 255, 0.897);
+}
+
+.cart-more-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  color: white;
+  background-color: var(--flip-blue);
+}
+
+.cart-more-buttons:hover {
+  background-color: white;
+  color: var(--flip-blue);
+}
+.more-arrow {
+  transition: all 200ms ease-in-out;
+}
+.more-button {
+  height: 100%;
+  width: 100%;
+}
+.dropdown-more:hover .more-arrow {
+  transform: rotate(180deg);
+}
+.dropdown-more:hover .more-button {
+  background-color: white;
+  color: var(--flip-blue);
+}
+.dropdown-more:hover .dropdown-more-list {
+  visibility: visible;
+  transform: scaleY(1);
+  transform-origin: top;
+}
+.dropdown-more {
+  height: 50%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.dropdown-more-list {
+  top: 35px;
+  position: absolute;
+  visibility: hidden;
+  background-color: white;
+  width: 100%;
+  transition: all 100ms ease-in;
+  border: 1px solid rgb(232, 232, 232);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  border-radius: 1px;
+}
+
+.dropdown-more-list li {
+  list-style: none;
+  text-align: center;
+  width: 100%;
+  padding: 6%;
+  border-bottom: 1px solid rgb(226, 226, 226);
+  transition: all 50ms ease-in;
+}
+.dropdown-more-list li:hover {
+  background-color: rgb(229, 229, 229);
+}
+
+.searchbar-for-mobile {
+  display: none;
+}
+.searchbar-for-mobile {
+  padding: 9%;
+  background-color: white;
+  height: 50%;
+  color: var(--flip-blue);
+  border-radius: 2px;
+  position: relative;
+  justify-content: start;
+  align-items: center;
+}
+.searchbar-for-mobile:hover .searchbar-input-mobile {
+  transform: scaleX(1);
+}
+
+.searchbar-input-mobile {
+  display: block;
+  position: absolute;
+  width: calc(100vw - 180px);
+  transition: all 100ms ease-in-out;
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 2;
+  height: 100%;
+  left: 40px;
+  border: none;
+  outline: none;
+}
+@media (max-width: 700px) {
+  .searchbar-for-mobile {
+    display: flex;
+  }
+  .searchbar {
+    display: none;
+  }
+  .header-left {
+    width: auto;
+    min-width: 0px;
+    margin-left: 5%;
+  }
+  .header-right {
+    margin-left: auto;
+  }
+  header {
+    justify-content: start;
+  }
+}
+@media (max-width: 450px) {
+  .header-right {
+    min-width: 0px;
+    margin-right: 10px;
+    width: 60%;
+    justify-content: flex-end;
+  }
+  .button-names {
+    display: none;
+    flex-shrink: 1;
+  }
+  .cart-more-buttons {
+    width: 40px;
+  }
+}
