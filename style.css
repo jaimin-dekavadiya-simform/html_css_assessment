@@ -322,16 +322,17 @@ main {
   align-items: center;
   gap: 20px;
   background-color: #f6f6f6;
-  height: 100vh;
+  padding-bottom: 50px;
 }
-.main-section-1 {
+.main-section {
   display: flex;
   width: 90%;
   height: 400px;
 
   gap: 10px;
 }
-.deals {
+.section-deals,
+.section-gaming {
   flex: 1;
   height: 100%;
   display: flex;
@@ -342,7 +343,7 @@ main {
   overflow: hidden;
   position: relative;
 }
-.deals-header {
+.product-header {
   flex: 0 0 60px;
   padding: 15px;
   padding-left: 25px;
@@ -350,21 +351,21 @@ main {
   border-bottom: 1px solid rgb(230, 230, 230);
   align-items: center;
 }
-.deals-header-title {
+.product-header-title {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
-.deals-header-title-text {
+.product-header-title-text {
   font-weight: bold;
   font-size: larger;
   text-overflow: ellipsis;
 }
-.deals-header-title-time {
+.product-header-title-time {
   color: gray;
 }
-.deals-view-button {
+.product-view-button {
   margin-left: auto;
   padding: 10px 15px;
   border-radius: 2px;
@@ -374,12 +375,12 @@ main {
   font-weight: 600;
   box-shadow: 1px 1px 5px rgb(203, 203, 203);
 }
-.deals-view-button:hover {
+.product-view-button:hover {
   color: rgb(49, 49, 49);
   background-color: rgb(217, 217, 217);
   transition: all 100ms ease-in-out;
 }
-.deals-content {
+.product-content {
   display: flex;
   min-height: 0;
   flex: 0 1 auto;
@@ -388,15 +389,16 @@ main {
   overflow: auto;
   gap: 10px;
 }
-.deals-content::-webkit-scrollbar {
+.product-content::-webkit-scrollbar {
   height: 6px;
+  width: 6px;
 }
 
-.deals-content::-webkit-scrollbar-thumb {
+.product-content::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 10px;
 }
-.deals-content-item {
+.product-content-item {
   display: flex;
   width: 200px;
   height: 100%;
@@ -412,24 +414,24 @@ main {
   overflow: hidden;
 }
 
-.deals-content-item:hover {
+.product-content-item:hover {
   background-color: #f6f6f6;
 }
-.deals-content-item-image {
+.product-content-item-image {
   flex: 1;
   min-height: 0;
   object-fit: scale-down;
   mix-blend-mode: multiply;
   padding: 10px;
 }
-.deals-content-item-title {
+.product-content-item-title {
   text-align: center;
   text-overflow: ellipsis;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
 }
-.deals-content-item-discount {
+.product-content-item-discount {
   text-align: center;
   white-space: nowrap;
   color: green;
@@ -437,7 +439,7 @@ main {
   width: 100%;
   overflow: hidden;
 }
-.deals-content-item-description {
+.product-content-item-description {
   text-align: center;
   color: gray;
   white-space: nowrap;
@@ -449,13 +451,13 @@ main {
   margin-left: auto;
   height: 100%;
   flex: 0 0 auto;
-  box-shadow: 1px 1px 10px rgb(207, 207, 207);
+  box-shadow: 1px 1px 5px rgb(27, 27, 27);
 }
 .advertisement-image {
   height: 100%;
 }
 
-.deals-content-scroll-button {
+.product-content-scroll-button {
   position: absolute;
   right: 0;
   height: 80px;
@@ -473,13 +475,13 @@ main {
   z-index: 2;
 }
 @media (max-width: 800px) {
-  .deals-header-title {
+  .product-header-title {
     flex-direction: column;
     gap: 2px;
   }
 }
 @media (max-width: 900px) {
-  .deals-content-item {
+  .product-content-item {
     height: 300px;
     gap: 5px;
     width: 200px;
@@ -489,20 +491,31 @@ main {
     bottom: 2%;
     right: 2%;
     height: 20%;
+    z-index: 2;
   }
-  .deals-content {
+  .product-content {
     flex-wrap: wrap;
     justify-content: space-around;
     overflow: scroll;
   }
-  .deals {
+  .product {
     flex: 0 0 auto;
   }
-  .main-section-1 {
+  .main-section {
     height: 500px;
     flex-direction: column;
   }
-  .deals-content-scroll-button {
+  .product-content-scroll-button {
     display: none;
   }
+}
+
+/* Gaming Section Styles  */
+
+.product-header-title-gaming {
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+  gap: 5px;
 }
