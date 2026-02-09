@@ -263,10 +263,12 @@ header {
   align-items: start;
   justify-content: center;
   overflow-x: scroll;
+  width: 100%;
   gap: 3%;
   padding-top: 10px;
   padding-bottom: 5px;
   box-shadow: 0px 1px 5px rgb(212, 212, 212);
+  background-color: white;
 }
 .category-item {
   display: flex;
@@ -311,4 +313,146 @@ header {
   .categories {
     justify-content: space-around;
   }
+}
+
+/* Deals Of The Day Section Styles */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #f6f6f6;
+  height: 100vh;
+}
+.main-section-1 {
+  display: flex;
+  width: 90%;
+  height: 400px;
+  gap: 10px;
+}
+.deals {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  box-shadow: 1px 1px 10px rgb(207, 207, 207);
+  background-color: white;
+  overflow: hidden;
+}
+.deals-header {
+  flex: 0 0 60px;
+  padding: 15px;
+  padding-left: 25px;
+  display: flex;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  align-items: center;
+}
+.deals-header-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.deals-header-title-text {
+  font-weight: bold;
+  font-size: larger;
+  text-overflow: ellipsis;
+}
+.deals-header-title-time {
+  color: gray;
+}
+.deals-view-button {
+  margin-left: auto;
+  padding: 10px 15px;
+  border-radius: 2px;
+  border: none;
+  background-color: var(--flip-blue);
+  color: white;
+  font-weight: 600;
+  box-shadow: 1px 1px 5px rgb(203, 203, 203);
+}
+.deals-view-button:hover {
+  color: rgb(49, 49, 49);
+  background-color: rgb(217, 217, 217);
+  transition: all 100ms ease-in-out;
+}
+.deals-content {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  position: relative;
+  padding: 20px;
+}
+.deals-content-item {
+  display: flex;
+  width: 200px;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  font-size: small;
+  align-items: center;
+  padding: 20px;
+  transition: all 50ms ease-in-out;
+  overflow: hidden;
+}
+
+.deals-content-item:hover {
+  background-color: #f6f6f6;
+}
+.deals-content-item-image {
+  flex: 1;
+  min-height: 0;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.deals-content-item-title {
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.deals-content-item-discount {
+  white-space: nowrap;
+  color: green;
+  text-overflow: ellipsis;
+  width: 100%;
+  overflow: hidden;
+}
+.deals-content-item-description {
+  color: gray;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  overflow: hidden;
+}
+.advertisement {
+  margin-left: auto;
+  height: 100%;
+  flex: 0 0 auto;
+  box-shadow: 1px 1px 10px rgb(207, 207, 207);
+}
+.advertisement-image {
+  height: 100%;
+}
+
+.deals-content-scroll-button {
+  position: absolute;
+  right: 0;
+  height: 80px;
+  /* --height: 60px;
+  --top: 50%; */
+  /* top: calc(var(--top) - 1 / 2 (var(--height))); */
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  width: 3%;
+  font-weight: bolder;
+  font-size: x-large;
+  background-color: white;
+  box-shadow: 1px 1px 50px rgb(0, 0, 0);
+  z-index: 2;
 }
