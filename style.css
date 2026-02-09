@@ -328,6 +328,7 @@ main {
   display: flex;
   width: 90%;
   height: 400px;
+
   gap: 10px;
 }
 .deals {
@@ -339,6 +340,7 @@ main {
   box-shadow: 1px 1px 10px rgb(207, 207, 207);
   background-color: white;
   overflow: hidden;
+  position: relative;
 }
 .deals-header {
   flex: 0 0 60px;
@@ -380,9 +382,19 @@ main {
 .deals-content {
   display: flex;
   min-height: 0;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   position: relative;
   padding: 20px;
+  overflow: auto;
+  gap: 10px;
+}
+.deals-content::-webkit-scrollbar {
+  height: 6px;
+}
+
+.deals-content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
 }
 .deals-content-item {
   display: flex;
@@ -406,16 +418,19 @@ main {
 .deals-content-item-image {
   flex: 1;
   min-height: 0;
-  object-fit: contain;
+  object-fit: scale-down;
   mix-blend-mode: multiply;
+  padding: 10px;
 }
 .deals-content-item-title {
+  text-align: center;
   text-overflow: ellipsis;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
 }
 .deals-content-item-discount {
+  text-align: center;
   white-space: nowrap;
   color: green;
   text-overflow: ellipsis;
@@ -423,6 +438,7 @@ main {
   overflow: hidden;
 }
 .deals-content-item-description {
+  text-align: center;
   color: gray;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -449,10 +465,44 @@ main {
   top: 50%;
   transform: translateY(-50%);
   border: none;
-  width: 3%;
+  width: 35px;
   font-weight: bolder;
   font-size: x-large;
   background-color: white;
-  box-shadow: 1px 1px 50px rgb(0, 0, 0);
+  box-shadow: 1px 1px 20px rgb(93, 93, 93);
   z-index: 2;
+}
+@media (max-width: 800px) {
+  .deals-header-title {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+@media (max-width: 900px) {
+  .deals-content-item {
+    height: 300px;
+    gap: 5px;
+    width: 200px;
+  }
+  .advertisement {
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    height: 20%;
+  }
+  .deals-content {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: scroll;
+  }
+  .deals {
+    flex: 0 0 auto;
+  }
+  .main-section-1 {
+    height: 500px;
+    flex-direction: column;
+  }
+  .deals-content-scroll-button {
+    display: none;
+  }
 }
