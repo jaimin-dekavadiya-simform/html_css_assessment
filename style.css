@@ -275,6 +275,9 @@ header {
   align-items: center;
   gap: 10px;
 }
+.category-item-name {
+  text-align: center;
+}
 .category-item-image {
   height: 80px;
   padding: 10%;
