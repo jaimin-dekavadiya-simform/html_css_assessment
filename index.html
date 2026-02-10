@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Not-Flipkart</title>
+    <title>Flipkart 2.0</title>
+    <link
+      rel="icon"
+      href="images/flipkart-header-icon.webp"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -14,8 +19,11 @@
     />
   </head>
   <body>
+    <!-- Header Of The Page -->
     <header>
+      <!-- Left Part of the Header ( Searchbar and Logo ) -->
       <div class="header-left">
+        <!-- Logo with two parts, Top and Bottom-->
         <div class="logo">
           <div class="logo-top">
             <img
@@ -32,10 +40,11 @@
               draggable="false"
               class="logo-flipkart-plus"
               src="images/flipkart-plus.png"
-              alt=""
+              alt="flipkart-plus-logo"
             />
           </div>
         </div>
+        <!-- Searchbar for Desktop-->
         <div class="searchbar">
           <input
             class="searchbar-input"
@@ -44,6 +53,7 @@
           />
           <i class="fa-solid fa-magnifying-glass searchbar-icon"></i>
         </div>
+        <!-- Searchbar for Mobile-->
         <div class="searchbar-for-mobile">
           <input
             class="searchbar-input-mobile"
@@ -53,9 +63,11 @@
           <i class="fa-solid fa-magnifying-glass searchbar-icon-mobile"></i>
         </div>
       </div>
-
+      <!-- Right Part of the Header ( Login, Cart and More ) -->
       <div class="header-right">
+        <!-- Login Button -->
         <button class="nav-buttons login-button">Login</button>
+        <!-- Dropdown Menu -->
         <div class="dropdown-more">
           <button class="nav-buttons more-button cart-more-buttons">
             <span class="button-names">More</span>
@@ -69,21 +81,24 @@
             <li>Option 5</li>
           </ul>
         </div>
-
+        <!-- Cart Button -->
         <button class="nav-buttons cart-button cart-more-buttons">
           <i class="fa-solid fa-cart-shopping"></i>
           <span class="button-names">Cart</span>
         </button>
       </div>
     </header>
+    <!-- Main Section of the Page -->
     <main>
+      <!-- Categories Section -->
       <div class="categories">
+        <!-- Category Items -->
         <div class="category-item">
           <img
             draggable="false"
             class="category-item-image offer-image"
             src="images/offer.png"
-            alt=""
+            alt="Top Offers"
           />
           <div class="category-item-title">
             <span class="category-item-name">Top Offers</span>
@@ -94,7 +109,7 @@
             draggable="false"
             class="category-item-image"
             src="images/groceries.jpg"
-            alt=""
+            alt="Groceries"
           />
           <div class="category-item-title">
             <span class="category-item-name">Groceries</span>
@@ -105,7 +120,7 @@
             draggable="false"
             class="category-item-image"
             src="images/phone.jpg"
-            alt=""
+            alt="Mobiles"
           />
           <div class="category-item-title">
             <span class="category-item-name">Mobiles</span>
@@ -116,7 +131,7 @@
             draggable="false"
             class="category-item-image"
             src="images/fashion.jpg"
-            alt=""
+            alt="Fashion"
           />
           <div class="category-item-title">
             <span class="category-item-name">Fashion</span>
@@ -128,7 +143,7 @@
             draggable="false"
             class="category-item-image"
             src="images/electronics.jpg"
-            alt=""
+            alt="Electronics"
           />
           <div class="category-item-title">
             <span class="category-item-name">Electronics</span>
@@ -140,7 +155,7 @@
             draggable="false"
             class="category-item-image"
             src="images/home.jpg"
-            alt=""
+            alt="Home"
           />
           <div class="category-item-title">
             <span class="category-item-name">Home</span>
@@ -152,7 +167,7 @@
             draggable="false"
             class="category-item-image"
             src="images/appliances.jpg"
-            alt=""
+            alt="Appliances"
           />
           <div class="category-item-title">
             <span class="category-item-name">Appliances</span>
@@ -164,7 +179,7 @@
             draggable="false"
             class="category-item-image"
             src="images/travel.jpg"
-            alt=""
+            alt="Travel"
           />
           <div class="category-item-title">
             <span class="category-item-name">Travel</span>
@@ -175,7 +190,7 @@
             draggable="false"
             class="category-item-image"
             src="images/beauty_toys.webp"
-            alt=""
+            alt="Beauty, Toys & more"
           />
           <div class="category-item-title">
             <span class="category-item-name">Beauty,Toys & more</span>
@@ -183,14 +198,18 @@
           </div>
         </div>
       </div>
+      <!-- Upper Part of Main Body -->
       <section class="main-section">
+        <!-- Deals of the Day -->
         <section class="section-deals">
+          <!-- Scroll Button for Deals of the Day -->
           <button class="product-content-scroll-button">
             <i class="fa-solid fa-angle-right"></i>
           </button>
+          <!-- Header for Deals of the Day -->
           <div class="product-header">
             <div class="product-header-title">
-              <span class="product-header-title-text">Deals of the Day</span>
+              <h2 class="product-header-title-text">Deals of the Day</h2>
               <span class="product-header-title-time">
                 <i class="fa-solid fa-clock"></i>
                 22 : 00 : 12 Left
@@ -198,13 +217,14 @@
             </div>
             <button class="product-view-button">VIEW ALL</button>
           </div>
-
+          <!-- Content for Deals of the Day -->
           <div class="product-content">
             <div class="product-content-item">
               <img
                 draggable="false"
                 class="product-content-item-image"
                 src="images/monitor.webp"
+                alt="Monitors"
               />
 
               <div
@@ -228,6 +248,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/camera.webp"
+                alt="Cameras"
               />
 
               <div
@@ -254,6 +275,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/cooker.webp"
+                alt="Cookers"
               />
 
               <div class="product-content-item-title" title="Pressure Cookers">
@@ -277,6 +299,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/beard-oil.webp"
+                alt="Beard Oil and other beard products"
               />
 
               <div
@@ -304,6 +327,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/caps.webp"
+                alt="Men's Caps"
               />
 
               <div class="product-content-item-title" title="Men's Caps">
@@ -327,6 +351,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/socks.webp"
+                alt="Men's and Women's socks"
               />
 
               <div class="product-content-item-title">
@@ -347,6 +372,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/dry-fruit.webp"
+                alt="Dry Fruits and Nuts"
               />
 
               <div class="product-content-item-title">Dry Fruits & Nuts</div>
@@ -368,6 +394,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/face-wash.webp"
+                alt="Face-wash and Serums"
               />
 
               <div
@@ -394,6 +421,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/wireless.webp"
+                alt="True Wireless Earphones"
               />
 
               <div
@@ -420,6 +448,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/watch.webp"
+                alt="Casio, Rado & More"
               />
 
               <div
@@ -443,7 +472,7 @@
             </div>
           </div>
         </section>
-
+        <!-- Advertisement in between -->
         <article class="advertisement">
           <a
             class="advertisement-link"
@@ -458,27 +487,35 @@
           </a>
         </article>
       </section>
+      <!-- Lower Part of Main Body -->
       <section class="main-section">
+        <!-- Gaming and more Section -->
         <section class="section-gaming">
+          <!-- Scroll Button for Gaming and more Section -->
           <button class="product-content-scroll-button">
             <i class="fa-solid fa-angle-right"></i>
           </button>
+          <!-- Header for Gaming and more Section -->
           <div class="product-header">
             <div class="product-header-title-gaming">
-              <span class="product-header-title-text">Gaming & More</span>
-              <span class="product-header-title-time">
-                Buy Latest Gaming accessories now !
+              <h2 class="product-header-title-text">Gaming & More</h2>
+              <span
+                class="product-header-title-time"
+                title="Buy Latest Gaming accessories now !"
+              >
+                Gaming accessories
               </span>
             </div>
             <button class="product-view-button">VIEW ALL</button>
           </div>
-
+          <!-- Content for Gaming and more Section -->
           <div class="product-content">
             <div class="product-content-item">
               <img
                 draggable="false"
                 class="product-content-item-image"
                 src="images/gaming_laptop.webp"
+                alt="Gaming Laptops"
               />
 
               <div class="product-content-item-title" title="Gaming Laptops">
@@ -502,6 +539,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/cpu.jpg"
+                alt="High-End Processors"
               />
 
               <div
@@ -528,6 +566,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/graphic_card.jpg"
+                alt="Graphic Cards"
               />
 
               <div class="product-content-item-title" title="Graphic Cards">
@@ -551,6 +590,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/headphones.jpg"
+                alt="Gaming Headphones"
               />
 
               <div class="product-content-item-title" title="Headphones">
@@ -574,6 +614,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/mic.jpg"
+                alt="Gaming Microphones"
               />
 
               <div class="product-content-item-title" title="Microphones">
@@ -597,6 +638,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/keyboard.jpg"
+                alt="Gaming Keyboards and Mouse"
               />
 
               <div class="product-content-item-title" title="Keyboards & Mouse">
@@ -620,6 +662,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/steering.jpg"
+                alt="Steering Wheels and Controllers"
               />
 
               <div
@@ -646,6 +689,7 @@
                 draggable="false"
                 class="product-content-item-image"
                 src="images/mouse_pad.jpg"
+                alt="Mouse Pads"
               />
 
               <div class="product-content-item-title" title="Mouse Pads">
