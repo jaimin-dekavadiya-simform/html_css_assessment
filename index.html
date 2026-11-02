@@ -9,6 +9,19 @@
       href="images/flipkart-header-icon.webp"
       type="image/x-icon"
     />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      // Apply a saved theme before first paint to avoid a flash of the wrong
+      // theme. With no saved choice the CSS prefers-color-scheme rule applies.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t === "light" || t === "dark") {
+            document.documentElement.setAttribute("data-theme", t);
+          }
+        } catch (e) {}
+      })();
+    </script>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -65,6 +78,16 @@
       </div>
       <!-- Right Part of the Header ( Login, Cart and More ) -->
       <div class="header-right">
+        <!-- Theme Toggle -->
+        <button
+          type="button"
+          class="theme-toggle"
+          aria-label="Switch to dark mode"
+          aria-pressed="false"
+        >
+          <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+        </button>
         <!-- Login Button -->
         <button class="nav-buttons login-button">Login</button>
         <!-- Dropdown Menu -->
@@ -713,5 +736,65 @@
       </section>
     </main>
     <footer></footer>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var btn = document.querySelector(".theme-toggle");
+        var mq = window.matchMedia("(prefers-color-scheme: dark)");
+
+        function saved() {
+          try {
+            var t = localStorage.getItem("theme");
+            return t === "light" || t === "dark" ? t : null;
+          } catch (e) {
+            return null;
+          }
+        }
+        function effective() {
+          return saved() || (mq.matches ? "dark" : "light");
+        }
+        function sync() {
+          var dark = effective() === "dark";
+          btn.setAttribute(
+            "aria-label",
+            dark ? "Switch to light mode" : "Switch to dark mode",
+          );
+          btn.setAttribute("aria-pressed", String(dark));
+        }
+        function apply(t) {
+          if (t) root.setAttribute("data-theme", t);
+          else root.removeAttribute("data-theme");
+          sync();
+        }
+
+        btn.addEventListener("click", function () {
+          var next = effective() === "dark" ? "light" : "dark";
+          apply(next);
+          try {
+            localStorage.setItem("theme", next);
+          } catch (e) {}
+        });
+
+        // Follow OS changes (CSS handles the colours when nothing is saved).
+        var onOsChange = function () {
+          sync();
+        };
+        if (mq.addEventListener) mq.addEventListener("change", onOsChange);
+        else if (mq.addListener) mq.addListener(onOsChange);
+
+        // Follow changes made in other tabs/pages.
+        window.addEventListener("storage", function (e) {
+          if (e.key === "theme" || e.key === null) apply(saved());
+        });
+
+        sync();
+        // Enable the colour transition only after the first paint.
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            root.classList.add("theme-ready");
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

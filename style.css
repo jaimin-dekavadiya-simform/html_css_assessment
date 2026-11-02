@@ -6,15 +6,121 @@
 }
 body {
   font-family: Verdana, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text);
 }
 :root {
   --flip-blue: #2874f0;
+
+  /* Theme tokens (light values equal the original hard-coded colours) */
+  color-scheme: light;
+  --bg-page: #f6f6f6;
+  --surface: white;
+  --text: #000;
+  --text-muted: gray;
+  --text-success: green;
+  --border: rgb(230, 230, 230);
+  --border-dropdown: rgb(232, 232, 232);
+  --border-dropdown-item: rgb(226, 226, 226);
+  --hover-bg: rgb(229, 229, 229);
+  --hover-item-bg: #f6f6f6;
+  --scrollbar-thumb: #ccc;
+  --shadow-categories: rgb(212, 212, 212);
+  --shadow-card: rgb(207, 207, 207);
+  --shadow-button: rgb(203, 203, 203);
+  --shadow-scroll: rgb(93, 93, 93);
+  --shadow-ad: rgb(27, 27, 27);
+  --header-bg: var(--flip-blue);
+  --on-header: white;
+  --logo-plus: rgb(255, 255, 0);
+  --accent-link: var(--flip-blue);
+  --login-hover-bg: rgba(255, 255, 255, 0.897);
+  --btn-hover-bg: rgb(217, 217, 217);
+  --btn-hover-text: rgb(49, 49, 49);
+  --input-text: #000;
+  --image-bg: transparent;
+  --image-blend: multiply;
+  --image-radius: 0;
+  --focus-ring: white;
+}
+
+/* Dark palette. Applied when the user picked dark, or when there is no saved
+   choice and the OS prefers dark. Keep both blocks identical. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-page: #121212;
+  --surface: #1e1e1e;
+  --text: #e8e8e8;
+  --text-muted: #a8a8a8;
+  --text-success: #4ade80;
+  --border: #333;
+  --border-dropdown: #333;
+  --border-dropdown-item: #2c2c2c;
+  --hover-bg: #2a2a2a;
+  --hover-item-bg: #2a2a2a;
+  --scrollbar-thumb: #555;
+  --shadow-categories: rgba(0, 0, 0, 0.6);
+  --shadow-card: rgba(0, 0, 0, 0.6);
+  --shadow-button: rgba(0, 0, 0, 0.6);
+  --shadow-scroll: rgba(0, 0, 0, 0.8);
+  --shadow-ad: rgba(0, 0, 0, 0.8);
+  --header-bg: #1c3f8f;
+  --on-header: white;
+  --logo-plus: rgb(255, 255, 0);
+  --accent-link: #8ab4ff;
+  --login-hover-bg: rgba(30, 30, 30, 0.897);
+  --btn-hover-bg: #2a2a2a;
+  --btn-hover-text: #e8e8e8;
+  --input-text: #e8e8e8;
+  --image-bg: #fff;
+  --image-blend: normal;
+  --image-radius: 4px;
+  --focus-ring: white;
+}
+:root[data-theme="dark"] ::placeholder {
+  color: #a8a8a8;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg-page: #121212;
+    --surface: #1e1e1e;
+    --text: #e8e8e8;
+    --text-muted: #a8a8a8;
+    --text-success: #4ade80;
+    --border: #333;
+    --border-dropdown: #333;
+    --border-dropdown-item: #2c2c2c;
+    --hover-bg: #2a2a2a;
+    --hover-item-bg: #2a2a2a;
+    --scrollbar-thumb: #555;
+    --shadow-categories: rgba(0, 0, 0, 0.6);
+    --shadow-card: rgba(0, 0, 0, 0.6);
+    --shadow-button: rgba(0, 0, 0, 0.6);
+    --shadow-scroll: rgba(0, 0, 0, 0.8);
+    --shadow-ad: rgba(0, 0, 0, 0.8);
+    --header-bg: #1c3f8f;
+    --on-header: white;
+    --logo-plus: rgb(255, 255, 0);
+    --accent-link: #8ab4ff;
+    --login-hover-bg: rgba(30, 30, 30, 0.897);
+    --btn-hover-bg: #2a2a2a;
+    --btn-hover-text: #e8e8e8;
+    --input-text: #e8e8e8;
+    --image-bg: #fff;
+    --image-blend: normal;
+    --image-radius: 4px;
+    --focus-ring: white;
+  }
+  :root:not([data-theme="light"]) ::placeholder {
+    color: #a8a8a8;
+  }
 }
 
 /* Header Styles */
 header {
   display: flex;
-  background-color: var(--flip-blue);
+  background-color: var(--header-bg);
   height: 70px;
   align-items: center;
   justify-content: space-around;
@@ -61,11 +167,11 @@ header {
   font-weight: bold;
   font-family: Verdana, sans-serif;
   font-size: 80%;
-  color: white;
+  color: var(--on-header);
 }
 .logo-text-plus {
   margin-left: 2%;
-  color: rgb(255, 255, 0);
+  color: var(--logo-plus);
 }
 .logo-flipkart-plus {
   position: relative;
@@ -82,7 +188,7 @@ header {
   justify-content: center;
   width: 80%;
   position: relative;
-  background-color: white;
+  background-color: var(--surface);
   padding-right: 2%;
   border-radius: 3px;
   overflow: hidden;
@@ -92,12 +198,14 @@ header {
   width: 100%;
   border: none;
   outline: none;
+  background: var(--surface);
+  color: var(--input-text);
   padding-left: 2%;
   font-size: medium;
   text-overflow: ellipsis;
 }
 .searchbar-icon {
-  color: var(--flip-blue);
+  color: var(--accent-link);
 }
 
 /* Searchbar Styles for Mobile */
@@ -106,9 +214,9 @@ header {
 }
 .searchbar-for-mobile {
   padding: 9%;
-  background-color: white;
+  background-color: var(--surface);
   height: 50%;
-  color: var(--flip-blue);
+  color: var(--accent-link);
   border-radius: 2px;
   position: relative;
   justify-content: start;
@@ -129,6 +237,8 @@ header {
   left: 99%;
   border: none;
   outline: none;
+  background: var(--surface);
+  color: var(--input-text);
 }
 
 /* Header Right Section Styles */
@@ -155,11 +265,11 @@ header {
 
 /* Login Button Styles */
 .login-button {
-  color: var(--flip-blue);
-  background-color: white;
+  color: var(--accent-link);
+  background-color: var(--surface);
 }
 .login-button:hover {
-  background-color: rgba(255, 255, 255, 0.897);
+  background-color: var(--login-hover-bg);
 }
 /* Cart & More Button Styles */
 .cart-more-buttons {
@@ -167,12 +277,12 @@ header {
   justify-content: center;
   align-items: center;
   gap: 5%;
-  color: white;
-  background-color: var(--flip-blue);
+  color: var(--on-header);
+  background-color: var(--header-bg);
 }
 .cart-more-buttons:hover {
-  background-color: white;
-  color: var(--flip-blue);
+  background-color: var(--surface);
+  color: var(--accent-link);
 }
 .more-arrow {
   transition: all 200ms ease-in-out;
@@ -186,8 +296,8 @@ header {
   transform: rotate(180deg);
 }
 .dropdown-more:hover .more-button {
-  background-color: white;
-  color: var(--flip-blue);
+  background-color: var(--surface);
+  color: var(--accent-link);
 }
 .dropdown-more:hover .dropdown-more-list {
   visibility: visible;
@@ -206,10 +316,10 @@ header {
   top: 100%;
   position: absolute;
   visibility: hidden;
-  background-color: white;
+  background-color: var(--surface);
   width: 100%;
   transition: all 100ms ease-in;
-  border: 1px solid rgb(232, 232, 232);
+  border: 1px solid var(--border-dropdown);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -223,11 +333,11 @@ header {
   text-align: center;
   width: 100%;
   padding: 6%;
-  border-bottom: 1px solid rgb(226, 226, 226);
+  border-bottom: 1px solid var(--border-dropdown-item);
   transition: all 50ms ease-in;
 }
 .dropdown-more-list li:hover {
-  background-color: rgb(229, 229, 229);
+  background-color: var(--hover-bg);
 }
 
 /* Responsive Styles For Header*/
@@ -271,7 +381,7 @@ header {
   }
   .dropdown-more-list li {
     min-width: 70px;
-    background-color: white;
+    background-color: var(--surface);
   }
 }
 
@@ -281,7 +391,7 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  background-color: #f6f6f6;
+  background-color: var(--bg-page);
   padding-bottom: 50px;
 }
 
@@ -295,8 +405,8 @@ main {
   gap: 3%;
   padding-top: 10px;
   padding-bottom: 5px;
-  box-shadow: 0px 1px 5px rgb(212, 212, 212);
-  background-color: white;
+  box-shadow: 0px 1px 5px var(--shadow-categories);
+  background-color: var(--surface);
 }
 /* Category Item Styles */
 .category-item {
@@ -312,6 +422,8 @@ main {
 .category-item-image {
   height: 80px;
   padding: 10%;
+  background: var(--image-bg);
+  border-radius: var(--image-radius);
   transition: all 50ms ease-in-out;
 }
 .category-item-title {
@@ -333,7 +445,7 @@ main {
   height: 6px;
 }
 .categories::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: var(--scrollbar-thumb);
   border-radius: 10px;
 }
 
@@ -360,8 +472,8 @@ main {
   display: flex;
   flex-direction: column;
   min-height: 0;
-  box-shadow: 1px 1px 10px rgb(207, 207, 207);
-  background-color: white;
+  box-shadow: 1px 1px 10px var(--shadow-card);
+  background-color: var(--surface);
   overflow: hidden;
   position: relative;
 }
@@ -370,7 +482,7 @@ main {
   padding: 15px;
   padding-left: 25px;
   display: flex;
-  border-bottom: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid var(--border);
   align-items: center;
 }
 .product-header-title {
@@ -385,21 +497,21 @@ main {
   text-overflow: ellipsis;
 }
 .product-header-title-time {
-  color: gray;
+  color: var(--text-muted);
 }
 .product-view-button {
   margin-left: auto;
   padding: 10px 15px;
   border-radius: 2px;
   border: none;
-  background-color: var(--flip-blue);
-  color: white;
+  background-color: var(--header-bg);
+  color: var(--on-header);
   font-weight: 600;
-  box-shadow: 1px 1px 5px rgb(203, 203, 203);
+  box-shadow: 1px 1px 5px var(--shadow-button);
 }
 .product-view-button:hover {
-  color: rgb(49, 49, 49);
-  background-color: rgb(217, 217, 217);
+  color: var(--btn-hover-text);
+  background-color: var(--btn-hover-bg);
   transition: all 100ms ease-in-out;
 }
 .product-content {
@@ -417,7 +529,7 @@ main {
 }
 
 .product-content::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: var(--scrollbar-thumb);
   border-radius: 10px;
 }
 .product-content-item {
@@ -437,13 +549,15 @@ main {
 }
 
 .product-content-item:hover {
-  background-color: #f6f6f6;
+  background-color: var(--hover-item-bg);
 }
 .product-content-item-image {
   flex: 1;
   min-height: 0;
   object-fit: scale-down;
-  mix-blend-mode: multiply;
+  mix-blend-mode: var(--image-blend);
+  background: var(--image-bg);
+  border-radius: var(--image-radius);
   padding: 10px;
 }
 .product-content-item-title {
@@ -456,14 +570,14 @@ main {
 .product-content-item-discount {
   text-align: center;
   white-space: nowrap;
-  color: green;
+  color: var(--text-success);
   text-overflow: ellipsis;
   width: 100%;
   overflow: hidden;
 }
 .product-content-item-description {
   text-align: center;
-  color: gray;
+  color: var(--text-muted);
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 100%;
@@ -482,8 +596,9 @@ main {
   width: 35px;
   font-weight: bolder;
   font-size: x-large;
-  background-color: white;
-  box-shadow: 1px 1px 20px rgb(93, 93, 93);
+  background-color: var(--surface);
+  color: var(--text);
+  box-shadow: 1px 1px 20px var(--shadow-scroll);
   z-index: 2;
 }
 
@@ -492,7 +607,7 @@ main {
   margin-left: auto;
   height: 100%;
   flex: 0 0 auto;
-  box-shadow: 1px 1px 5px rgb(27, 27, 27);
+  box-shadow: 1px 1px 5px var(--shadow-ad);
 }
 .advertisement-image {
   height: 100%;
@@ -542,4 +657,70 @@ main {
 
   flex-direction: column;
   gap: 5px;
+}
+
+/* Theme toggle (header) */
+.theme-toggle {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--on-header);
+  font-size: medium;
+  cursor: pointer;
+}
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+/* Light theme shows the moon (switch to dark), dark theme shows the sun */
+.theme-toggle .icon-sun {
+  display: none;
+}
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  display: inline;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon {
+    display: none;
+  }
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun {
+    display: inline;
+  }
+}
+@media (max-width: 450px) {
+  .theme-toggle {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Smooth theme switch. Only enabled once the page has loaded (.theme-ready),
+   and only on surfaces that have no transition of their own. */
+@media (prefers-reduced-motion: no-preference) {
+  html.theme-ready body,
+  html.theme-ready header,
+  html.theme-ready main,
+  html.theme-ready .searchbar,
+  html.theme-ready .searchbar-for-mobile,
+  html.theme-ready .categories,
+  html.theme-ready .section-deals,
+  html.theme-ready .section-gaming,
+  html.theme-ready .product-header {
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      border-color 0.2s;
+  }
 }
