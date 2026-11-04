@@ -9,6 +9,24 @@
       href="images/flipkart-header-icon.webp"
       type="image/x-icon"
     />
+    <meta name="color-scheme" content="light dark" />
+    <!-- Theme init: runs before first paint to avoid a flash of the wrong theme -->
+    <script>
+      (function () {
+        var t = null;
+        try {
+          t = localStorage.getItem("theme");
+        } catch (e) {}
+        if (t !== "light" && t !== "dark") {
+          t =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      })();
+    </script>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -85,6 +103,17 @@
         <button class="nav-buttons cart-button cart-more-buttons">
           <i class="fa-solid fa-cart-shopping"></i>
           <span class="button-names">Cart</span>
+        </button>
+        <!-- Theme Toggle Button -->
+        <button
+          type="button"
+          class="theme-toggle"
+          id="theme-toggle"
+          aria-label="Switch to dark theme"
+          title="Toggle theme"
+        >
+          <i class="fa-solid fa-moon theme-icon-moon" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun theme-icon-sun" aria-hidden="true"></i>
         </button>
       </div>
     </header>
@@ -713,5 +742,63 @@
       </section>
     </main>
     <footer></footer>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var toggle = document.getElementById("theme-toggle");
+        var mq = window.matchMedia
+          ? window.matchMedia("(prefers-color-scheme: dark)")
+          : null;
+
+        function getSaved() {
+          try {
+            var t = localStorage.getItem("theme");
+            return t === "light" || t === "dark" ? t : null;
+          } catch (e) {
+            return null;
+          }
+        }
+        function apply(theme) {
+          root.setAttribute("data-theme", theme);
+          toggle.setAttribute(
+            "aria-label",
+            theme === "dark" ? "Switch to light theme" : "Switch to dark theme",
+          );
+        }
+
+        apply(root.getAttribute("data-theme") === "dark" ? "dark" : "light");
+
+        toggle.addEventListener("click", function () {
+          var next =
+            root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          root.classList.add("theme-transition");
+          apply(next);
+          try {
+            localStorage.setItem("theme", next);
+          } catch (e) {}
+          setTimeout(function () {
+            root.classList.remove("theme-transition");
+          }, 250);
+        });
+
+        // Follow the OS only while the user has no saved choice
+        function onSystemChange(e) {
+          if (!getSaved()) apply(e.matches ? "dark" : "light");
+        }
+        if (mq) {
+          if (mq.addEventListener) mq.addEventListener("change", onSystemChange);
+          else if (mq.addListener) mq.addListener(onSystemChange);
+        }
+
+        // Keep other open tabs/pages in sync
+        window.addEventListener("storage", function (e) {
+          if (e.key === "theme" || e.key === null) {
+            var t = getSaved();
+            if (t) apply(t);
+            else apply(mq && mq.matches ? "dark" : "light");
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

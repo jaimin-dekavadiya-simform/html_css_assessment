@@ -6,15 +6,157 @@
 }
 body {
   font-family: Verdana, sans-serif;
+  background-color: var(--bg-surface);
+  color: var(--text);
 }
+
+/* Theme tokens: light palette (default). Dark palettes are defined below. */
 :root {
+  color-scheme: light dark;
   --flip-blue: #2874f0;
+
+  /* Backgrounds */
+  --bg-page: #f6f6f6;
+  --bg-surface: white;
+  --bg-hover: #f6f6f6;
+  --bg-menu-hover: rgb(229, 229, 229);
+  --bg-search: white;
+  --input-bg: white;
+  --header-bg: var(--flip-blue);
+  --btn-bg: var(--flip-blue);
+
+  /* Text */
+  --text: black;
+  --text-muted: gray;
+  --text-success: green;
+  --text-on-brand: white;
+  --text-plus: rgb(255, 255, 0);
+  --brand-accent: var(--flip-blue);
+
+  /* Buttons */
+  --btn-invert-bg: white;
+  --btn-invert-text: var(--flip-blue);
+  --btn-hover-bg: rgba(255, 255, 255, 0.897);
+  --view-btn-hover-bg: rgb(217, 217, 217);
+  --view-btn-hover-text: rgb(49, 49, 49);
+  --toggle-hover-bg: rgba(255, 255, 255, 0.15);
+  --focus-ring: white;
+
+  /* Borders, shadows, scrollbars */
+  --border: rgb(232, 232, 232);
+  --border-row: rgb(226, 226, 226);
+  --border-header: rgb(230, 230, 230);
+  --shadow-cat: rgb(212, 212, 212);
+  --shadow-card: rgb(207, 207, 207);
+  --shadow-btn: rgb(203, 203, 203);
+  --shadow-scroll: rgb(93, 93, 93);
+  --shadow-ad: rgb(27, 27, 27);
+  --scrollbar-thumb: #ccc;
+
+  /* Images */
+  --img-blend: multiply;
+  --img-bg: transparent;
+  --img-radius: 0;
+}
+
+/* Explicit light choice (overrides a dark OS preference) */
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* Explicit dark choice */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-page: #121212;
+  --bg-surface: #1e1e1e;
+  --bg-hover: #2a2a2a;
+  --bg-menu-hover: #333;
+  --bg-search: #1e1e1e;
+  --input-bg: #1e1e1e;
+  --header-bg: #1a4fb0;
+  --btn-bg: #1a4fb0;
+  --text: #e8e8e8;
+  --text-muted: #a8a8a8;
+  --text-success: #6fdc8c;
+  --text-on-brand: white;
+  --text-plus: rgb(255, 255, 0);
+  --brand-accent: #8ab4ff;
+  --btn-invert-bg: #1e1e1e;
+  --btn-invert-text: #8ab4ff;
+  --btn-hover-bg: #2a2a2a;
+  --view-btn-hover-bg: #3a3a3a;
+  --view-btn-hover-text: #e8e8e8;
+  --focus-ring: white;
+  --border: #333;
+  --border-row: #333;
+  --border-header: #3a3a3a;
+  --shadow-cat: rgba(0, 0, 0, 0.6);
+  --shadow-card: rgba(0, 0, 0, 0.6);
+  --shadow-btn: rgba(0, 0, 0, 0.6);
+  --shadow-scroll: rgba(0, 0, 0, 0.8);
+  --shadow-ad: rgba(0, 0, 0, 0.8);
+  --scrollbar-thumb: #555;
+  --img-blend: normal;
+  --img-bg: #fff;
+  --img-radius: 8px;
+}
+:root[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+:root[data-theme="dark"] .theme-icon-sun {
+  display: inline-block;
+}
+
+/* Dark palette for users with no saved choice (also covers no-JS).
+   Keep these values in sync with :root[data-theme="dark"] above. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg-page: #121212;
+    --bg-surface: #1e1e1e;
+    --bg-hover: #2a2a2a;
+    --bg-menu-hover: #333;
+    --bg-search: #1e1e1e;
+    --input-bg: #1e1e1e;
+    --header-bg: #1a4fb0;
+    --btn-bg: #1a4fb0;
+    --text: #e8e8e8;
+    --text-muted: #a8a8a8;
+    --text-success: #6fdc8c;
+    --text-on-brand: white;
+    --text-plus: rgb(255, 255, 0);
+    --brand-accent: #8ab4ff;
+    --btn-invert-bg: #1e1e1e;
+    --btn-invert-text: #8ab4ff;
+    --btn-hover-bg: #2a2a2a;
+    --view-btn-hover-bg: #3a3a3a;
+    --view-btn-hover-text: #e8e8e8;
+    --focus-ring: white;
+    --border: #333;
+    --border-row: #333;
+    --border-header: #3a3a3a;
+    --shadow-cat: rgba(0, 0, 0, 0.6);
+    --shadow-card: rgba(0, 0, 0, 0.6);
+    --shadow-btn: rgba(0, 0, 0, 0.6);
+    --shadow-scroll: rgba(0, 0, 0, 0.8);
+    --shadow-ad: rgba(0, 0, 0, 0.8);
+    --scrollbar-thumb: #555;
+    --img-blend: normal;
+    --img-bg: #fff;
+    --img-radius: 8px;
+  }
+  :root:not([data-theme="light"]) .theme-icon-moon {
+    display: none;
+  }
+  :root:not([data-theme="light"]) .theme-icon-sun {
+    display: inline-block;
+  }
 }
 
 /* Header Styles */
 header {
   display: flex;
-  background-color: var(--flip-blue);
+  background-color: var(--header-bg);
   height: 70px;
   align-items: center;
   justify-content: space-around;
@@ -61,11 +203,11 @@ header {
   font-weight: bold;
   font-family: Verdana, sans-serif;
   font-size: 80%;
-  color: white;
+  color: var(--text-on-brand);
 }
 .logo-text-plus {
   margin-left: 2%;
-  color: rgb(255, 255, 0);
+  color: var(--text-plus);
 }
 .logo-flipkart-plus {
   position: relative;
@@ -82,7 +224,7 @@ header {
   justify-content: center;
   width: 80%;
   position: relative;
-  background-color: white;
+  background-color: var(--bg-search);
   padding-right: 2%;
   border-radius: 3px;
   overflow: hidden;
@@ -92,12 +234,14 @@ header {
   width: 100%;
   border: none;
   outline: none;
+  background: transparent;
+  color: var(--text);
   padding-left: 2%;
   font-size: medium;
   text-overflow: ellipsis;
 }
 .searchbar-icon {
-  color: var(--flip-blue);
+  color: var(--brand-accent);
 }
 
 /* Searchbar Styles for Mobile */
@@ -106,9 +250,9 @@ header {
 }
 .searchbar-for-mobile {
   padding: 9%;
-  background-color: white;
+  background-color: var(--bg-search);
   height: 50%;
-  color: var(--flip-blue);
+  color: var(--brand-accent);
   border-radius: 2px;
   position: relative;
   justify-content: start;
@@ -129,6 +273,8 @@ header {
   left: 99%;
   border: none;
   outline: none;
+  background-color: var(--input-bg);
+  color: var(--text);
 }
 
 /* Header Right Section Styles */
@@ -155,11 +301,11 @@ header {
 
 /* Login Button Styles */
 .login-button {
-  color: var(--flip-blue);
-  background-color: white;
+  color: var(--brand-accent);
+  background-color: var(--btn-invert-bg);
 }
 .login-button:hover {
-  background-color: rgba(255, 255, 255, 0.897);
+  background-color: var(--btn-hover-bg);
 }
 /* Cart & More Button Styles */
 .cart-more-buttons {
@@ -167,12 +313,12 @@ header {
   justify-content: center;
   align-items: center;
   gap: 5%;
-  color: white;
-  background-color: var(--flip-blue);
+  color: var(--text-on-brand);
+  background-color: var(--header-bg);
 }
 .cart-more-buttons:hover {
-  background-color: white;
-  color: var(--flip-blue);
+  background-color: var(--btn-invert-bg);
+  color: var(--btn-invert-text);
 }
 .more-arrow {
   transition: all 200ms ease-in-out;
@@ -186,8 +332,8 @@ header {
   transform: rotate(180deg);
 }
 .dropdown-more:hover .more-button {
-  background-color: white;
-  color: var(--flip-blue);
+  background-color: var(--btn-invert-bg);
+  color: var(--btn-invert-text);
 }
 .dropdown-more:hover .dropdown-more-list {
   visibility: visible;
@@ -206,10 +352,10 @@ header {
   top: 100%;
   position: absolute;
   visibility: hidden;
-  background-color: white;
+  background-color: var(--bg-surface);
   width: 100%;
   transition: all 100ms ease-in;
-  border: 1px solid rgb(232, 232, 232);
+  border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -223,11 +369,67 @@ header {
   text-align: center;
   width: 100%;
   padding: 6%;
-  border-bottom: 1px solid rgb(226, 226, 226);
+  color: var(--text);
+  border-bottom: 1px solid var(--border-row);
   transition: all 50ms ease-in;
 }
 .dropdown-more-list li:hover {
-  background-color: rgb(229, 229, 229);
+  background-color: var(--bg-menu-hover);
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-on-brand);
+  font-size: medium;
+  cursor: pointer;
+}
+.theme-toggle:hover {
+  background-color: var(--toggle-hover-bg);
+}
+.theme-icon-sun {
+  display: none;
+}
+
+/* Visible keyboard focus */
+.theme-toggle:focus-visible,
+.nav-buttons:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.product-view-button:focus-visible,
+.product-content-scroll-button:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 2px;
+}
+
+/* Smooth theme switch (class is added by script on click only, so nothing
+   animates on initial load) */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition: none !important;
+  }
 }
 
 /* Responsive Styles For Header*/
@@ -271,7 +473,7 @@ header {
   }
   .dropdown-more-list li {
     min-width: 70px;
-    background-color: white;
+    background-color: var(--bg-surface);
   }
 }
 
@@ -281,7 +483,7 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  background-color: #f6f6f6;
+  background-color: var(--bg-page);
   padding-bottom: 50px;
 }
 
@@ -295,8 +497,8 @@ main {
   gap: 3%;
   padding-top: 10px;
   padding-bottom: 5px;
-  box-shadow: 0px 1px 5px rgb(212, 212, 212);
-  background-color: white;
+  box-shadow: 0px 1px 5px var(--shadow-cat);
+  background-color: var(--bg-surface);
 }
 /* Category Item Styles */
 .category-item {
@@ -313,6 +515,8 @@ main {
   height: 80px;
   padding: 10%;
   transition: all 50ms ease-in-out;
+  background-color: var(--img-bg);
+  border-radius: var(--img-radius);
 }
 .category-item-title {
   display: flex;
@@ -333,7 +537,7 @@ main {
   height: 6px;
 }
 .categories::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: var(--scrollbar-thumb);
   border-radius: 10px;
 }
 
@@ -360,8 +564,8 @@ main {
   display: flex;
   flex-direction: column;
   min-height: 0;
-  box-shadow: 1px 1px 10px rgb(207, 207, 207);
-  background-color: white;
+  box-shadow: 1px 1px 10px var(--shadow-card);
+  background-color: var(--bg-surface);
   overflow: hidden;
   position: relative;
 }
@@ -370,7 +574,7 @@ main {
   padding: 15px;
   padding-left: 25px;
   display: flex;
-  border-bottom: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid var(--border-header);
   align-items: center;
 }
 .product-header-title {
@@ -385,21 +589,21 @@ main {
   text-overflow: ellipsis;
 }
 .product-header-title-time {
-  color: gray;
+  color: var(--text-muted);
 }
 .product-view-button {
   margin-left: auto;
   padding: 10px 15px;
   border-radius: 2px;
   border: none;
-  background-color: var(--flip-blue);
-  color: white;
+  background-color: var(--btn-bg);
+  color: var(--text-on-brand);
   font-weight: 600;
-  box-shadow: 1px 1px 5px rgb(203, 203, 203);
+  box-shadow: 1px 1px 5px var(--shadow-btn);
 }
 .product-view-button:hover {
-  color: rgb(49, 49, 49);
-  background-color: rgb(217, 217, 217);
+  color: var(--view-btn-hover-text);
+  background-color: var(--view-btn-hover-bg);
   transition: all 100ms ease-in-out;
 }
 .product-content {
@@ -417,7 +621,7 @@ main {
 }
 
 .product-content::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: var(--scrollbar-thumb);
   border-radius: 10px;
 }
 .product-content-item {
@@ -437,13 +641,15 @@ main {
 }
 
 .product-content-item:hover {
-  background-color: #f6f6f6;
+  background-color: var(--bg-hover);
 }
 .product-content-item-image {
   flex: 1;
   min-height: 0;
   object-fit: scale-down;
-  mix-blend-mode: multiply;
+  mix-blend-mode: var(--img-blend);
+  background-color: var(--img-bg);
+  border-radius: var(--img-radius);
   padding: 10px;
 }
 .product-content-item-title {
@@ -456,14 +662,14 @@ main {
 .product-content-item-discount {
   text-align: center;
   white-space: nowrap;
-  color: green;
+  color: var(--text-success);
   text-overflow: ellipsis;
   width: 100%;
   overflow: hidden;
 }
 .product-content-item-description {
   text-align: center;
-  color: gray;
+  color: var(--text-muted);
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 100%;
@@ -482,8 +688,9 @@ main {
   width: 35px;
   font-weight: bolder;
   font-size: x-large;
-  background-color: white;
-  box-shadow: 1px 1px 20px rgb(93, 93, 93);
+  background-color: var(--bg-surface);
+  color: var(--text);
+  box-shadow: 1px 1px 20px var(--shadow-scroll);
   z-index: 2;
 }
 
@@ -492,7 +699,7 @@ main {
   margin-left: auto;
   height: 100%;
   flex: 0 0 auto;
-  box-shadow: 1px 1px 5px rgb(27, 27, 27);
+  box-shadow: 1px 1px 5px var(--shadow-ad);
 }
 .advertisement-image {
   height: 100%;

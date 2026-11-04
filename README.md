@@ -27,6 +27,13 @@ html_css_assessment/
    `OR` <br>
    Run html file with Live-Server (extension) on VS-code
 
+## Dark Mode
+
+- The site follows the system colour scheme (`prefers-color-scheme`) on the first visit.
+- Use the sun/moon button in the header to switch themes manually.
+- The choice is saved in `localStorage` under the `theme` key (`"light"` or `"dark"`) and applies on every page and reload.
+- All colours are CSS custom properties on `:root` in `style.css`; the dark palette lives under `:root[data-theme="dark"]` and, for users with no saved choice, under `@media (prefers-color-scheme: dark)`. Keep the two blocks in sync when changing colours.
+
 ## Screenshots
 
 ### Desktop View
