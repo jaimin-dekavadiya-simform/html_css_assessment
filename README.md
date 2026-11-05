@@ -8,11 +8,12 @@ This project is a responsive e-commerce website built with HTML and CSS. It demo
 
 ```
 html_css_assessment/
-├── index.html    ( Contains HTML structure of the assesment.)
-├── styles.css    ( Contains Styles applies to html elements.)
-├── images/       ( Contains Images used in the assessment.)
-├── screenshots/  ( Contains screenshots presented in readme.md.)
-└── README.md     ( Readme file of assessment.)
+├── index.html      ( Contains HTML structure of the assesment.)
+├── styles.css      ( Contains Styles applies to html elements.)
+├── images/         ( Contains Images used in the assessment.)
+├── screenshots/    ( Contains screenshots presented in readme.md.)
+├── README.md       ( Readme file of assessment.)
+└── distribution.md ( Explains how the site is packaged and published.)
 ```
 
 ## How to Run
@@ -26,6 +27,10 @@ html_css_assessment/
 2. Open `index.html` in your web browser<br>
    `OR` <br>
    Run html file with Live-Server (extension) on VS-code
+
+## Distribution
+
+See [distribution.md](distribution.md) for publishing and verification steps.
 
 ## Dark Mode
 
